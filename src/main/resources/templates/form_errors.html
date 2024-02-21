@@ -1,0 +1,9 @@
+<!DOCTYPE html><!-- 모든 폼에러를 표시하는 공통 템플릿-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="form_ErrorsFragment"
+     class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+
+    <div th:each="err : ${#fields.allErrors()}" th:text="${err}"/>
+
+</div>
+</html>

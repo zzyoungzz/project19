@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace= "~{header}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+<br>
+<div class="container my-6">
+    <form th:action="@{/login}" method="post" style="text-align: center;">
+
+        <h1 style="text-align: center;">로그인</h1>
+
+        <div th:if="${param.error}"><!--Spring Security로그인 오류-->
+            <div class="alert alert-danger">
+                사용자ID 또는 비밀번호를 확인해 주세요.
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <label for="username" class="form-label">ID</label>
+                <input name="username" id="username" type="text" class="form-control" placeholder="ID 입력">
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col col-lg-6">
+                <label for="username" class="form-label">비밀번호</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="password 입력">
+            </div>
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-dark">로그인</button>
+    </form>
+</div>
+
+
+
+
+</body>
+</html>

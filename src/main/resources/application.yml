@@ -1,0 +1,35 @@
+spring:
+  datasource:
+#    url: jdbc:h2:tcp://localhost/~/project16
+#    url: jdbc:h2:~/project16
+    url: jdbc:mysql://localhost:3306/project16
+    username: root
+    password: 1122
+#    driver-class-name: org.h2.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  profiles:
+    active: local
+#API 컨트롤러. local로 다른데영향안줌
+
+
+#jpa: hibernate) 스프링으로 sql자동생성
+  jpa:
+    hibernate:
+      ddl-auto: create    #실행시 롤백     OR update
+
+    properties:
+      hibernate:
+#        show_sql: true    log로 출력해서필요x
+        format_sql: true
+        use_sql_comments: true    #dsl쿼리 출력
+        default_batch_fetch_size: 1000   #인쿼리 루프   orderApi v3.1
+#    open-in-view: false   커넥션 성능과부화시 off (spring.jpa.open-)
+
+
+#log로 출력
+logging.level:
+  org.hibernate.SQL: debug
+
+  org.hibernate.orm.jdbc.bind: trace    #결과값print
+
